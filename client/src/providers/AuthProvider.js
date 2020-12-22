@@ -15,11 +15,12 @@ export class AuthProvider extends React.Component {
   handleRegister = (user, history) => {
     Axios.post("/api/auth", user)
       .then((res) => {
-        this.setState({ user: res.data.data });
+        // this.setState({ user: res.data.data });
+        console.log(res);
         history.push("/");
       })
       .catch((err) => {
-        console.log("Error in Registration: " + err);
+        alert(`Error in Registration: ${err.response.data}`);
       });
   };
 
@@ -31,7 +32,7 @@ export class AuthProvider extends React.Component {
         history.push("/");
       })
       .catch((err) => {
-        console.log("Error in Login: " + err);
+        alert(err.response.data);
       });
   };
 
@@ -43,7 +44,7 @@ export class AuthProvider extends React.Component {
         history.push("/login");
       })
       .catch((err) => {
-        console.log("Error in Logout: " + err);
+        alert(`Error in Logout: ${err.response.data}`);
       });
   };
 
@@ -51,7 +52,7 @@ export class AuthProvider extends React.Component {
     return (
       <AuthContext.Provider
         value={{
-          ...this.state,
+          ...this.state.user,
           authenticated: this.state.user !== null,
           handleRegister: this.handleRegister,
           handleLogin: this.handleLogin,
