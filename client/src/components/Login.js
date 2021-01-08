@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import { Header, Button, Form, Segment } from "semantic-ui-react";
 
 export default (props) => {
   //init email and password for login
@@ -16,28 +15,28 @@ export default (props) => {
 
   return (
     <>
-      <Segment>
-        <Header as="h1" textAlign="center">
+      <div>
+        <h1 as="h1" textAlign="center">
           Login
-        </Header>
-        <Form onSubmit={handleSubmit}>
-          <Form.Input
+        </h1>
+        <form onSubmit={handleSubmit}>
+          <input
             label="Email"
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Form.Input
+          <input
             label="Password"
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Segment basic textAlign="center">
-            <Button type="submit">login</Button>
-          </Segment>
-        </Form>
-      </Segment>
+          <div textAlign="center">
+            <button type="submit">login</button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };

@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Menu } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 
 export default (props) => {

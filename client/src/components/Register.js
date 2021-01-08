@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { Header, Form, Button, Segment } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 
 export default (props) => {
@@ -21,30 +20,30 @@ export default (props) => {
 
   return (
     <>
-      <Header as="h1">Register</Header>
-      <Form onSubmit={handleSubmit}>
-        <Form.Input
+      <h1 as="h1">Register</h1>
+      <form onSubmit={handleSubmit}>
+        <input
           label="Email"
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <Form.Input
+        <input
           label="Password"
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Form.Input
+        <input
           label="Confirm Password"
           name="confirmpassword"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <Segment basic textAlign="center">
-          <Button type="submit">register</Button>
-        </Segment>
-      </Form>
+        <div basic textAlign="center">
+          <button type="submit">register</button>
+        </div>
+      </form>
     </>
   );
 };
