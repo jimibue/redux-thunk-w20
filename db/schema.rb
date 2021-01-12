@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2021_01_12_145230) do
   create_table "submissions", force: :cascade do |t|
     t.boolean "completed"
     t.string "name"
-c    t.string "video_upload"
+    t.string "video_upload"
     t.bigint "level_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
