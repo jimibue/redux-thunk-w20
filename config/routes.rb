@@ -7,6 +7,18 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api do
-    resources :things
+    resources :exercises do
+      resources :levels
+    end
+    resources :levels do
+      resources :submissions
+    end
+    resources :users do
+      resources :submissions
+    end
+    resources :admins do
+      resources :comments
+      resources :exercises
+    end
   end
 end
